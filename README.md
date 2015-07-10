@@ -5,7 +5,7 @@ Utility to view and analyze har file
 ## Installation
 
 ```bash
-$ npm install har-view -g
+$ npm install har-viewer -g
 ```
 
 ```bash
