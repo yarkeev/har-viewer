@@ -23,8 +23,12 @@ define([
 	};
 
 	function HarViewer ($parent, options) {
+		var config = $('#har-viewer-config').html();
+
 		this.$parent = $parent;
-		this.config = JSON.parse($('#har-viewer-config').html());
+		if (config) {
+			this.config = JSON.parse(config);
+		}
 		this.options = $.extend(true, {
 			config: this.config
 		}, defaultOptions, options);

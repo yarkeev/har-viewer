@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var finalhandler = require('finalhandler'),
 	http = require('http'),
 	serveStatic = require('serve-static'),
@@ -5,6 +7,7 @@ var finalhandler = require('finalhandler'),
 	fs = require('fs'),
 	Handlebars = require('handlebars'),
 	serve = serveStatic('public'),
+	port = 3000,
 	server = http.createServer(function(req, res){
 		var done;
 
@@ -40,7 +43,8 @@ var finalhandler = require('finalhandler'),
 
 program
 	.version('0.0.1')
-	.option('-c, --config [value]', 'Set config path')
+	.option('-c, --config [value]', 'Path to config')
+	.option('-p, --port [value]', 'Port to use [3000]')
 	.parse(process.argv);
 
 if (program.config) {
@@ -49,9 +53,12 @@ if (program.config) {
 			console.log(err);
 		} else {
 			config = content.toString();
-			server.listen(3000);
+			server.listen(port);
 		}
 	});
 } else {
-	server.listen(3000);
+	server.listen(port);
 }
+
+console.log('Starting up har viewer on http://127.0.0.1:' + port);
+
