@@ -7,7 +7,7 @@ var finalhandler = require('finalhandler'),
 	fs = require('fs'),
 	path = require('path'),
 	Handlebars = require('handlebars'),
-	baseDir = path.dirname(process.argv[1])
+	baseDir = path.dirname(fs.readlinkSync(process.argv[1])),
 	serve = serveStatic(path.resolve(baseDir,'public')),
 	port = 3000,
 	server = http.createServer(function(req, res){
@@ -44,7 +44,7 @@ var finalhandler = require('finalhandler'),
 	config = '';
 
 program
-	.version('0.0.1')
+	.version('0.0.4')
 	.option('-c, --config [value]', 'Path to config')
 	.option('-p, --port [value]', 'Port to use [3000]')
 	.parse(process.argv);
