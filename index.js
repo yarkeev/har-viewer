@@ -5,14 +5,16 @@ var finalhandler = require('finalhandler'),
 	serveStatic = require('serve-static'),
 	program = require('commander'),
 	fs = require('fs'),
+	path = require('path'),
 	Handlebars = require('handlebars'),
-	serve = serveStatic('public'),
+	baseDir = path.dirname(process.argv[1])
+	serve = serveStatic(path.resolve(baseDir,'public')),
 	port = 3000,
 	server = http.createServer(function(req, res){
 		var done;
 
 		if (req.url === '/') {
-			fs.readFile('./templates/index.hbs', function (err, content) {
+			fs.readFile(path.resolve(baseDir, 'templates/index.hbs'), function (err, content) {
 				var template;
 
 				if (err) {
