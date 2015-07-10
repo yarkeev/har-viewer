@@ -44,7 +44,7 @@ var finalhandler = require('finalhandler'),
 	config = '';
 
 program
-	.version('0.0.7')
+	.version('0.0.8')
 	.option('-c, --config [value]', 'Path to config')
 	.option('-p, --port [value]', 'Port to use [3000]')
 	.parse(process.argv);
