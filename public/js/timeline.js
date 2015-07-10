@@ -208,61 +208,63 @@ define([
 				type = $target.data('type'),
 				filteredItems;
 
-			this.clear();
+			if (type) {
+				this.clear();
 
-			switch (type) {
-				case 'all':
-					this.renderItems(this.options.items);
-					break;
-				case 'js':
-					filteredItems = this.options.items.filter(function (item) {
-						return item.name.indexOf('.js') !== -1;
-					});
-					this.renderItems(filteredItems);
-					break;
-				case 'css':
-					filteredItems = this.options.items.filter(function (item) {
-						return item.name.indexOf('.css') !== -1;
-					});
-					this.renderItems(filteredItems);
-					break;
-				case 'images':
-					filteredItems = this.options.items.filter(function (item) {
-						var result = false;
-
-						this.options.imgExt.forEach(function (ext) {
-							if (item.name.indexOf('.' + ext) !== -1) {
-								result = true;
-							}
+				switch (type) {
+					case 'all':
+						this.renderItems(this.options.items);
+						break;
+					case 'js':
+						filteredItems = this.options.items.filter(function (item) {
+							return item.name.indexOf('.js') !== -1;
 						});
-						return result;
-					}.bind(this));
-					this.renderItems(filteredItems);
-					break;
+						this.renderItems(filteredItems);
+						break;
+					case 'css':
+						filteredItems = this.options.items.filter(function (item) {
+							return item.name.indexOf('.css') !== -1;
+						});
+						this.renderItems(filteredItems);
+						break;
+					case 'images':
+						filteredItems = this.options.items.filter(function (item) {
+							var result = false;
 
-				case 'plus':
-					if (this.zoom > 1) {
-						this.zoom++;
-					} else {
-						this.zoom += .1;
-					}
-					this.renderHeadTimeItems();
-					this.renderItems(this.options.items);
-					break;
+							this.options.imgExt.forEach(function (ext) {
+								if (item.name.indexOf('.' + ext) !== -1) {
+									result = true;
+								}
+							});
+							return result;
+						}.bind(this));
+						this.renderItems(filteredItems);
+						break;
 
-				case 'minus':
-					if (this.zoom > 1) {
-						this.zoom--;
-					} else if (this.zoom > 0) {
-						this.zoom -= .1
-					}
-					this.renderHeadTimeItems();
-					this.renderItems(this.options.items);
-					break;
+					case 'plus':
+						if (this.zoom > 1) {
+							this.zoom++;
+						} else {
+							this.zoom += .1;
+						}
+						this.renderHeadTimeItems();
+						this.renderItems(this.options.items);
+						break;
+
+					case 'minus':
+						if (this.zoom > 1) {
+							this.zoom--;
+						} else if (this.zoom > 0) {
+							this.zoom -= .1
+						}
+						this.renderHeadTimeItems();
+						this.renderItems(this.options.items);
+						break;
+				}
+
+				this.$headFilter.find('.' + this.options.cssClasses.headFilterItem).removeClass('selected');
+				$target.addClass('selected');
 			}
-
-			this.$headFilter.find('.' + this.options.cssClasses.headFilterItem).removeClass('selected');
-			$target.addClass('selected');
 		}
 
 	};

@@ -49,8 +49,6 @@ define([
 					}
 				}.bind(this));
 
-			console.log(entries);
-
 			items.push({
 				name: item.name,
 				y: entries[0].responseEnd - item.entries[item.entries.length - 1].responseEnd
