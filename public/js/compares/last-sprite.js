@@ -49,10 +49,12 @@ define([
 					}
 				}.bind(this));
 
-			items.push({
-				name: item.name,
-				y: entries[0].responseEnd - item.entries[item.entries.length - 1].responseEnd
-			});
+			if (entries.length) {
+				items.push({
+					name: item.name,
+					y: entries[0].responseEnd - item.entries[item.entries.length - 1].responseEnd
+				});
+			}
 		}.bind(this));
 
 		$parent.highcharts({

@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+var fs = require('fs'),
+	path = require('path');
+
 var finalhandler = require('finalhandler'),
 	http = require('http'),
 	serveStatic = require('serve-static'),
@@ -7,7 +10,8 @@ var finalhandler = require('finalhandler'),
 	fs = require('fs'),
 	path = require('path'),
 	Handlebars = require('handlebars'),
-	baseDir = path.dirname(path.resolve(path.dirname(process.argv[1]), fs.readlinkSync(process.argv[1]))),
+	isSymbolicLink = fs.lstatSync(process.argv[1]).isSymbolicLink(),
+	baseDir = path.dirname(path.resolve(path.dirname(process.argv[1]), isSymbolicLink ? fs.readlinkSync(process.argv[1]) : process.argv[1])),
 	serve = serveStatic(path.resolve(baseDir,'public')),
 	port = 3000,
 	server = http.createServer(function(req, res){
