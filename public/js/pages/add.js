@@ -48,8 +48,12 @@ define([
 
 			new SourceFile({
 				files: event.originalEvent.dataTransfer.files,
-				callback: function (har) {
-					this.options.onAddItem(har);
+				callback: function (result) {
+					if (result.err) {
+						alert(result.name + ' is not a valid');
+					} else {
+						this.options.onAddItem(result);
+					}
 				}.bind(this)
 			});
 

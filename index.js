@@ -13,7 +13,7 @@ var finalhandler = require('finalhandler'),
 	isSymbolicLink = fs.lstatSync(process.argv[1]).isSymbolicLink(),
 	baseDir = path.dirname(path.resolve(path.dirname(process.argv[1]), isSymbolicLink ? fs.readlinkSync(process.argv[1]) : process.argv[1])),
 	serve = serveStatic(path.resolve(baseDir,'public')),
-	port = 3000,
+	port,
 	server = http.createServer(function(req, res){
 		var done;
 
@@ -48,10 +48,12 @@ var finalhandler = require('finalhandler'),
 	config = '';
 
 program
-	.version('0.0.9')
+	.version('0.0.11')
 	.option('-c, --config [value]', 'Path to config')
 	.option('-p, --port [value]', 'Port to use [3000]')
 	.parse(process.argv);
+
+port = program.port || 3000;
 
 if (program.config) {
 	fs.readFile(program.config, function (err, content) {
