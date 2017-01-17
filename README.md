@@ -1,4 +1,4 @@
-<link rel="shortcut icon" type="image/x-icon" href="https://raw.github.com/yarkeev/har-viewer/gh-pages/pics/favicon.ico">
+<link rel="shortcut icon" href="https://raw.github.com/yarkeev/har-viewer/gh-pages/pics/favicon.ico">
 
 # har-viewer
 
