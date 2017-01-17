@@ -1,5 +1,8 @@
-![alt tag](https://raw.github.com/yarkeev/har-viewer/gh-pages/pics/logo.png)
+<link rel="shortcut icon" type="image/x-icon" href="https://raw.github.com/yarkeev/har-viewer/gh-pages/pics/favicon.ico">
+
 # har-viewer
+
+![](https://raw.github.com/yarkeev/har-viewer/gh-pages/pics/logo.png)
 
 Utility to view and analyze har file
 
