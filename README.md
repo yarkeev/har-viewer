@@ -12,7 +12,6 @@ Utility to view and analyze har file
 $ npm install har-viewer -g
 ```
 <br/>
-<br/>
 
 ```bash
 $ har-viewer
