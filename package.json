@@ -1,11 +1,8 @@
 {
   "name": "har-viewer",
-  "version": "0.0.12",
+  "version": "1.0.0",
   "description": "har files viewer",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "keywords": [
     "har",
     "performance"
@@ -16,24 +13,7 @@
   "author": "Yarkeev Denis <denis.yarkeev@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "commander": "^2.5.0",
-    "finalhandler": "~0.3.2",
-    "gulp": "^3.8.10",
-    "gulp-concat": "^2.4.1",
-    "gulp-declare": "^0.3.0",
-    "gulp-define-module": "^0.1.1",
-    "gulp-filter": "^1.0.2",
-    "gulp-handlebars": "^3.0.1",
-    "gulp-stylus": "^1.3.4",
-    "gulp-wrap": "^0.5.0",
-    "handlebars": "^2.0.0",
-    "nib": "^1.0.4",
-    "serve-static": "~1.7.1"
-  },
-  "dependencies": {
     "gulp": "^3.9.0",
-    "finalhandler": "^0.3.6",
-    "commander": "^2.8.1",
     "gulp-concat": "^2.6.0",
     "gulp-define-module": "^0.1.3",
     "gulp-declare": "^0.3.0",
@@ -41,7 +21,11 @@
     "gulp-filter": "^1.0.2",
     "gulp-stylus": "^1.3.7",
     "nib": "^1.1.0",
-    "gulp-wrap": "^0.5.0",
+    "gulp-wrap": "^0.5.0"
+  },
+  "dependencies": {
+    "finalhandler": "^0.3.6",
+    "commander": "^2.8.1",
     "handlebars": "^2.0.0",
     "serve-static": "^1.7.2"
   },
@@ -52,5 +36,5 @@
   "bugs": {
     "url": "https://github.com/yarkeev/har-viewer/issues"
   },
-  "homepage": "https://github.com/yarkeev/har-viewer#readme"
+  "homepage": "https://yarkeev.github.io/har-viewer"
 }

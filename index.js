@@ -1,8 +1,5 @@
 #!/usr/bin/env node
 
-var fs = require('fs'),
-	path = require('path');
-
 var finalhandler = require('finalhandler'),
 	http = require('http'),
 	serveStatic = require('serve-static'),
@@ -48,7 +45,7 @@ var finalhandler = require('finalhandler'),
 	config = '';
 
 program
-	.version('0.0.11')
+	.version(JSON.parse(fs.readFileSync(path.resolve(baseDir, 'package.json'))).version)
 	.option('-c, --config [value]', 'Path to config')
 	.option('-p, --port [value]', 'Port to use [3000]')
 	.parse(process.argv);
